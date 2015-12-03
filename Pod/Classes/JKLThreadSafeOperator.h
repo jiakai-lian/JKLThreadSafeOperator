@@ -10,4 +10,7 @@
 
 @interface JKLThreadSafeOperator : NSObject
 
++ (void) syncReadWithObject:(id)object readBlock:(void (^) (id object)) readBlock;
++ (void) barrierAsyncWriteWithObject:(id)object writeBlock:(void (^) (id object)) writeBlock;
+
 @end
