@@ -5,9 +5,31 @@
 [![License](https://img.shields.io/cocoapods/l/JKLThreadSafeOperator.svg?style=flat)](http://cocoapods.org/pods/JKLThreadSafeOperator)
 [![Platform](https://img.shields.io/cocoapods/p/JKLThreadSafeOperator.svg?style=flat)](http://cocoapods.org/pods/JKLThreadSafeOperator)
 
-## Usage
+This operator is designated to perform thread-safe operations by simpliy wrapping read & write operations into corresponding blocks. So without changing original model classes, the application could achieve multi-threading high performance  without compromizing the stablity.
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+The main idea behind the scene is applying concurrent read and exclusive write model on a concurrent GCD queue. Additionally, this operator maintains a simple cache to manage queues for each type of class.
+
+
+## Run Example Projects
+
+To run the example project, clone the repo, and run `pod `install from the Example directory first.
+
+## Usage
+#### Read Operation
+```
+__block NSUInteger n;
+[JKLThreadSafeOperator syncReadWithObject:item readBlock:^(JKLItem * innerReadOnlyItem) {
+                    n = [innerReadOnlyItem subItems].count;
+                }];
+```
+
+#### Write Operation
+```
+[JKLThreadSafeOperator barrierAsyncWriteWithObject:item writeBlock:^(JKLItem * innerWritableItem) {
+                    [innerWritableItem addsubItem:@"subItem"];
+                }];
+```
+
 
 ## Requirements
 
