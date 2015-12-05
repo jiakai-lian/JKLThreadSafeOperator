@@ -45,7 +45,7 @@
   }
 }
 
-    + (NSCache *)queueCache {
++ (NSCache *)queueCache {
   static NSCache *_queueCache = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
