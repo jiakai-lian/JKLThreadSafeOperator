@@ -29,15 +29,15 @@ void testScenario(JKLItem *item) {
         dispatch_apply(DISPATCH_QUEUE_COUNT, queue, ^(size_t i) {
             if (!(i % 10))
             {
-                [JKLThreadSafeOperator barrierAsyncWriteWithObject:item writeBlock:^(JKLItem * innerItem) {
-                    [innerItem addsubItem:@"subItems"];
+                [JKLThreadSafeOperator barrierAsyncWriteWithObject:item writeBlock:^(JKLItem * innerWritableItem) {
+                    [innerWritableItem addsubItem:@"subItems"];
                 }];
                 
             }
             else {
                 __block NSUInteger n;
-                [JKLThreadSafeOperator syncReadWithObject:item readBlock:^(JKLItem * innerItem) {
-                    n = [innerItem subItems].count;
+                [JKLThreadSafeOperator syncReadWithObject:item readBlock:^(JKLItem * innerReadOnlyItem) {
+                    n = [innerReadOnlyItem subItems].count;
                 }];
             }
         });

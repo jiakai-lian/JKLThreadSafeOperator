@@ -11,18 +11,18 @@
 @implementation JKLThreadSafeOperator
 
 #pragma mark - Public Mehtods
-+ (void)syncReadWithObject:(id)object readBlock:(void (^)(id object))readBlock {
-  dispatch_queue_t queue = [self queueForClass:[object class]];
++ (void)syncReadWithObject:(id)readOnlyObject readBlock:(void (^)(id innerReadOnlyObject))readBlock {
+  dispatch_queue_t queue = [self queueForClass:[readOnlyObject class]];
   dispatch_sync(queue, ^{
-    readBlock(object);
+    readBlock(readOnlyObject);
   });
 }
 
-+ (void)barrierAsyncWriteWithObject:(id)object
-                         writeBlock:(void (^)(id object))writeBlock {
-  dispatch_queue_t queue = [self queueForClass:[object class]];
++ (void)barrierAsyncWriteWithObject:(id)writableObject
+                         writeBlock:(void (^)(id innerWritableObject))writeBlock {
+  dispatch_queue_t queue = [self queueForClass:[writableObject class]];
   dispatch_barrier_async(queue, ^{
-    writeBlock(object);
+    writeBlock(writableObject);
   });
 }
 

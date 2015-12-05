@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol ReadOnly
+@end
+
+@protocol ReadWrite
+@end
+
 @interface JKLThreadSafeOperator : NSObject
 
-+ (void) syncReadWithObject:(id)object readBlock:(void (^) (id object)) readBlock;
-+ (void) barrierAsyncWriteWithObject:(id)object writeBlock:(void (^) (id object)) writeBlock;
++ (void) syncReadWithObject:(id)readOnlyObject readBlock:(void (^) (id innerReadOnlyObject)) readBlock;
++ (void) barrierAsyncWriteWithObject:(id)writableObject writeBlock:(void (^) (id innerWritableObject)) writeBlock;
 
 @end
