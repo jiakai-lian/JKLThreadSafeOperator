@@ -1,5 +1,5 @@
 //
-//  JKLItem.h
+//  JKLCourse.h
 //  JKLThreadSafeOperator
 //
 //  Created by jiakai lian on 3/12/2015.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JKLItem : NSObject
+@interface JKLCourse : NSObject
 
-@property(nonatomic, copy) NSArray *subItems;
+@property(nonatomic, copy) NSArray *students;
 
-- (void)addsubItem:(NSString *)string;
+- (void)addStudentWithStudentName:(NSString *)studentName;
 
 @end

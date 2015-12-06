@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E4D96651C105FDB00A68A0B /* JKLItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4D96641C105FDB00A68A0B /* JKLItem.m */; };
+		3E4D96651C105FDB00A68A0B /* JKLCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4D96641C105FDB00A68A0B /* JKLCourse.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -38,8 +38,8 @@
 
 /* Begin PBXFileReference section */
 		191D396A4496180EEB63F8A6 /* Pods-JKLThreadSafeOperator_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKLThreadSafeOperator_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKLThreadSafeOperator_Tests/Pods-JKLThreadSafeOperator_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		3E4D96631C105FDB00A68A0B /* JKLItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKLItem.h; sourceTree = "<group>"; };
-		3E4D96641C105FDB00A68A0B /* JKLItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLItem.m; sourceTree = "<group>"; };
+		3E4D96631C105FDB00A68A0B /* JKLCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKLCourse.h; sourceTree = "<group>"; };
+		3E4D96641C105FDB00A68A0B /* JKLCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKLCourse.m; sourceTree = "<group>"; };
 		47BE6BE9EA881854E4B594F5 /* Pods_JKLThreadSafeOperator_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKLThreadSafeOperator_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DAA9F5F8AFC8A7CD9FA601B /* Pods-JKLThreadSafeOperator_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKLThreadSafeOperator_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKLThreadSafeOperator_Example/Pods-JKLThreadSafeOperator_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JKLThreadSafeOperator_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKLThreadSafeOperator_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,8 +140,8 @@
 				6003F5A6195388D20070C39A /* JKLViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
-				3E4D96631C105FDB00A68A0B /* JKLItem.h */,
-				3E4D96641C105FDB00A68A0B /* JKLItem.m */,
+				3E4D96631C105FDB00A68A0B /* JKLCourse.h */,
+				3E4D96641C105FDB00A68A0B /* JKLCourse.m */,
 			);
 			name = "Example for JKLThreadSafeOperator";
 			path = JKLThreadSafeOperator;
@@ -395,7 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E4D96651C105FDB00A68A0B /* JKLItem.m in Sources */,
+				3E4D96651C105FDB00A68A0B /* JKLCourse.m in Sources */,
 				6003F59E195388D20070C39A /* JKLAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* JKLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,

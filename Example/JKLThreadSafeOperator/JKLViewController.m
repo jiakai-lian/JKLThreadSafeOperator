@@ -7,19 +7,19 @@
 //
 
 #import "JKLViewController.h"
-#import "JKLItem.h"
+#import "JKLCourse.h"
 #import <JKLThreadSafeOperator/JKLThreadSafeOperator.h>
 
 #define TICK NSDate *startTime = [NSDate date]
 #define TOCK                                                                   \
-NSLog(@"%@ Time: %f subItemsCount: %ld", NSStringFromClass(item.class),      \
+NSLog(@"%@ Time: %f subItemsCount: %ld", NSStringFromClass(course.class),      \
 -[startTime timeIntervalSinceNow],                                     \
-(unsigned long)[item subItems].count)
+(unsigned long)[course students].count)
 
 static const NSUInteger DISPATCH_QUEUE_COUNT = 100000;
 static const NSUInteger ITERATION_COUNT = 1;
 
-void testScenario(JKLItem *item) {
+void testScenario(JKLCourse * course) {
     @autoreleasepool {
         dispatch_queue_t queue =
         dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -29,15 +29,15 @@ void testScenario(JKLItem *item) {
         dispatch_apply(DISPATCH_QUEUE_COUNT, queue, ^(size_t i) {
             if (!(i % 10))
             {
-                [JKLThreadSafeOperator barrierAsyncWriteWithObject:item writeBlock:^(JKLItem * innerWritableItem) {
-                    [innerWritableItem addsubItem:@"subItems"];
+                [JKLThreadSafeOperator barrierAsyncWriteWithObject:course writeBlock:^(JKLCourse * innerWritableCourse) {
+                    [innerWritableCourse addStudentWithStudentName:@"Bob"];
                 }];
                 
             }
             else {
-                __block NSUInteger n;
-                [JKLThreadSafeOperator syncReadWithObject:item readBlock:^(JKLItem * innerReadOnlyItem) {
-                    n = [innerReadOnlyItem subItems].count;
+                __block NSUInteger studentsCount;
+                [JKLThreadSafeOperator syncReadWithObject:course readBlock:^(JKLCourse * innerReadOnlyCourse) {
+                    studentsCount = [innerReadOnlyCourse students].count;
                 }];
             }
         });
@@ -59,7 +59,7 @@ void testScenario(JKLItem *item) {
     
     
     for (NSUInteger i = 0; i < ITERATION_COUNT; i++) {
-        testScenario([[JKLItem alloc] init]);
+        testScenario([[JKLCourse alloc] init]);
     }
 
 }
