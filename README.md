@@ -7,7 +7,7 @@
 
 Make a class thread-safe could be painful, as involving wrapping all your public methods into GCD operations.
 
-This operator is designated to perform thread-safe operations by simpliy wrapping read & write operations into corresponding blocks. So without changing original model classes, the application could achieve multi-threading high performance  without compromizing the stablity.
+This operator is designated to perform thread-safe operations by simply wrapping read & write operations into corresponding blocks. So without changing original model classes, the application could achieve multi-threading high performance  without compromising the stability.
 
 The main idea behind the scene is applying concurrent read and exclusive write model on a concurrent GCD queue. Additionally, this operator maintains a simple cache to manage queues for each type of class.
 
@@ -19,16 +19,16 @@ To run the example project, clone the repo, and run `pod `install from the Examp
 ## Usage
 #### Read Operation
 ```
-__block NSUInteger n;
-[JKLThreadSafeOperator syncReadWithObject:item readBlock:^(JKLItem * innerReadOnlyItem) {
-                    n = [innerReadOnlyItem subItems].count;
+                __block NSUInteger studentsCount;
+                [JKLThreadSafeOperator syncReadWithObject:course readBlock:^(JKLCourse * innerReadOnlyCourse) {
+                    studentsCount = [innerReadOnlyCourse students].count;
                 }];
 ```
 
 #### Write Operation
 ```
-[JKLThreadSafeOperator barrierAsyncWriteWithObject:item writeBlock:^(JKLItem * innerWritableItem) {
-                    [innerWritableItem addsubItem:@"subItem"];
+                [JKLThreadSafeOperator barrierAsyncWriteWithObject:course writeBlock:^(JKLCourse * innerWritableCourse) {
+                    [innerWritableCourse addStudentWithStudentName:@"Bob"];
                 }];
 ```
 
