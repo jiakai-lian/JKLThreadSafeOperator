@@ -5,9 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/JKLThreadSafeOperator.svg?style=flat)](http://cocoapods.org/pods/JKLThreadSafeOperator)
 [![Platform](https://img.shields.io/cocoapods/p/JKLThreadSafeOperator.svg?style=flat)](http://cocoapods.org/pods/JKLThreadSafeOperator)
 
-Make a class thread-safe could be painful, as involving wrapping all your public methods into GCD operations.
+Make a class thread-safe could be painful, as involving wrapping all your public methods into GCD operations.  
 
-This operator is designated to perform thread-safe operations by simply wrapping read & write operations into corresponding blocks. So without changing original model classes, the application could achieve multi-threading high performance  without compromising the stability.
+This operator is designated to perform thread-safe operations by simply wrapping read & write operations into corresponding blocks. (For performance comparision between different implementations, please check another repo [ThreadSafeClassDesign](https://github.com/jiakai-lian/ThreadSafeClassDesign)). So without changing original model classes, the project could benefit from multi-threading without compromising the stability.
 
 The main idea behind the scene is applying concurrent read and exclusive write model on a concurrent GCD queue. Additionally, this operator maintains a simple cache to manage queues for each type of class.
 
