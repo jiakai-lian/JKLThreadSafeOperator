@@ -17,6 +17,9 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+Make a class thread-safe could be painful, as involving wrapping all your public methods into GCD operations.  
+
+This operator is designated to perform thread-safe operations by simply wrapping read & write operations into corresponding blocks. So without changing original model classes, the project could benefit from multi-threading without compromising the stability.
                        DESC
 
   s.homepage         = "https://github.com/jiakai-lian/JKLThreadSafeOperator"
