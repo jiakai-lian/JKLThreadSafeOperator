@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "JKLThreadSafeOperator"
   s.version          = "0.1.0"
-  s.summary          = "A light-weight thread-safe operation wrapper used to perform sync read, aync barrier write on a concurrent queue.”
+  s.summary          = "A light-weight thread-safe operation wrapper used to perform sync read, aync barrier write on a concurrent queue."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,12 +17,9 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
-Make a class thread-safe could be painful, as involving wrapping all your public methods into GCD operations.
-
-This operator is designated to perform thread-safe operations by simply wrapping read & write operations into corresponding blocks. So without changing original model classes, the application could achieve multi-threading high performance  without compromizing the stability.
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/JKLThreadSafeOperator"
+  s.homepage         = "https://github.com/jiakai-lian/JKLThreadSafeOperator"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Jiakai Lian" => "jiakai.lian@gmail.com" }
@@ -41,3 +38,4 @@ This operator is designated to perform thread-safe operations by simply wrapping
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
+
